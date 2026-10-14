@@ -1,0 +1,163 @@
+ <!DOCTYPE html>
+<html lang="ha">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kasuwar Hausa</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7f5;
+  color: #18352b;
+}
+header {
+  background: #075e45;
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+}
+header h1 { margin: 0 0 8px; }
+header p { margin: 0; }
+nav {
+  background: #064b38;
+  padding: 12px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+.intro, .business {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px #00000010;
+}
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #b8c9c0;
+  border-radius: 8px;
+  font-size: 16px;
+  margin: 10px 0;
+}
+.business h3 { margin-top: 0; }
+.tag {
+  display: inline-block;
+  background: #e2f4e9;
+  padding: 5px 9px;
+  border-radius: 15px;
+  font-size: 13px;
+}
+.contact {
+  display: inline-block;
+  background: #087b50;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 7px;
+  text-decoration: none;
+  margin-top: 8px;
+}
+footer {
+  text-align: center;
+  background: #064b1b;
+  color: white;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Kasuwar Hausa</h1>
+  <p>Nemo sana'o'i da kasuwanci cikin sauki</p>
+</header>
+
+<nav>
+  <a href="#gida">Gida</a>
+  <a href="#kasuwanci">Kasuwanci</a>
+  <a href="#game-da-mu">Game da mu</a>
+</nav>
+
+<main id="gida">
+  <section class="intro">
+    <h2>Barka da zuwa Kasuwar Hausa!</h2>
+    <p>Nemo shaguna, masu gyaran waya da sauran sana'o'i a kusa da kai.</p>
+    <label for="search">Nemo kasuwanci:</label>
+    <input id="search" type="search"
+      placeholder="Misali: gyaran waya"
+      oninput="searchBusinesses()">
+  </section>
+
+  <section id="kasuwanci">
+    <h2>Kasuwancin da ake nunawa</h2>
+    <div id="business-list">
+
+      <article class="business">
+        <span class="tag">Misali</span>
+        <h3>Shagon Gyaran Waya</h3>
+        <p>Ayyuka: Gyaran waya da binciken matsala.</p>
+        <p>Wuri: Saka garin da shagon yake.</p>
+        <a class="contact" href="#game-da-mu">Bayanin tuntuɓa</a>
+      </article>
+
+      <article class="business">
+        <span class="tag">Misali</span>
+        <h3>Shagon Kayan Lantarki</h3>
+        <p>Ayyuka: Sayar da caja, kebul da sauran kayan waya.</p>
+        <p>Wuri: Saka garin da shagon yake.</p>
+        <a class="contact" href="#game-da-mu">Bayanin tuntuɓa</a>
+      </article>
+
+    </div>
+    <p id="no-results" hidden>Ba a samu kasuwancin da ya dace ba.</p>
+  </section>
+
+  <section class="intro" id="game-da-mu">
+    <h2>Game da mu</h2>
+    <p>Kasuwar Hausa na taimaka wa mutane su gano kasuwanci da sana'o'i.</p>
+    <p>Wannan sigar gwaji ce. Za a saka bayanan kasuwanci na gaskiya bayan an tabbatar da su.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Kasuwar Hausa</p>
+  <p>An gina shi domin sauƙaƙa gano kasuwanci.</p>
+</footer>
+<section class="intro">
+  <h2> Kana son a saka kasuwancinka?</h2>
+  <p>Tuntuɓe mu ta WhatsApp domin neman saka kasuwancinka a Kasuwar Hausa.</p>
+  <a class="contact"
+     href="https://wa.me/2348162766467?text=Assalamu%20alaikum%2C%20ina%20son%20a%20saka%20kasuwancina%20a%20Kasuwar%20Hausa."
+     target="_blank" rel="noopener">
+    Tuntuɓe mu ta WhatsApp
+  </a>
+</section>
+
+<script>
+function searchBusinesses() {
+  const query = document.getElementById("search").value.toLowerCase();
+  const cards = document.querySelectorAll("#business-list .business");
+  let visible = 0;
+
+  cards.forEach(function(card) {
+    const matches = card.innerText.toLowerCase().includes(query);
+    card.style.display = matches ? "block" : "none";
+    if (matches) visible++;
+  });
+
+  document.getElementById("no-results").hidden = visible > 0;
+}
+</script>
+
+</body>
+</html>
