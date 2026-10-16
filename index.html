@@ -185,5 +185,136 @@ function searchBusinesses() {
   </div>
 </section>
 
+<!-- KAYAYYAKI KYAUTA -->
+<section id="kyauta" class="intro">
+  <h2>🎁 Kayayyaki Kyauta a Kasuwar Hausa</h2>
+
+  <p>
+    Muna ba kwastomomi damar neman kayayyaki kyauta
+    bisa adadin da aka tanada. Cika fom ɗin da ke ƙasa.
+  </p>
+
+  <div class="business">
+    <h3>🔌 Kebul ɗin Caji</h3>
+    <p>Kyauta ce bisa samuwa.</p>
+  </div>
+
+  <div class="business">
+    <h3>📱 Murfin Waya</h3>
+    <p>Zaɓi murfin da ya dace da wayarka.</p>
+  </div>
+
+  <div class="business">
+    <h3>🎧 Handsfree</h3>
+    <p>Ka nemi handsfree idan akwai.</p>
+  </div>
+
+  <div class="business">
+    <h3>📱 Tsayawar Waya</h3>
+    <p>Ƙaramin kayan riƙe waya bisa samuwa.</p>
+  </div>
+
+  <h3>Fom ɗin Neman Kyauta</h3>
+
+  <form id="giftForm">
+    <label for="giftName">Cikakken suna:</label>
+    <input id="giftName" name="name" type="text"
+      placeholder="Shigar da sunanka" required>
+
+    <label for="giftPhone">Lambar waya:</label>
+    <input id="giftPhone" name="phone" type="tel"
+      placeholder="Lambar wayarka" required>
+
+    <label for="giftItem">Zaɓi kyautar da kake so:</label>
+    <select id="giftItem" name="item" required>
+      <option value="">-- Zaɓi kaya --</option>
+      <option>Kebul ɗin caji</option>
+      <option>Murfin waya</option>
+      <option>Handsfree</option>
+      <option>Tsayawar waya</option>
+    </select>
+
+    <label for="giftModel">Nau'in wayarka (idan ya dace):</label>
+    <input id="giftModel" name="model" type="text"
+      placeholder="Misali: OPPO A53s">
+
+    <label for="giftNote">Ƙarin bayani:</label>
+    <textarea id="giftNote" name="note"
+      placeholder="Rubuta ƙarin bayani"></textarea>
+
+    <button type="submit">Nemi Kyauta</button>
+  </form>
+
+  <p id="giftResult" role="status" aria-live="polite"></p>
+
+  <p>
+    <small>
+      Ana bayar da kyaututtuka ne gwargwadon samuwa.
+      Cika fom ba ya tabbatar da samun kyauta.
+    </small>
+  </p>
+</section>
+
+<style>
+  #kyauta input,
+  #kyauta select,
+  #kyauta textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 16px;
+    border: 1px solid #b8cfc1;
+    border-radius: 8px;
+    font: inherit;
+    box-sizing: border-box;
+  }
+
+  #kyauta button {
+    background: #087f50;
+    color: white;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  #kyauta button:hover {
+    background: #065f3c;
+  }
+
+  #giftResult {
+    margin-top: 16px;
+    font-weight: bold;
+  }
+</style>
+
+<script>
+  document.getElementById("giftForm").addEventListener(
+    "submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("giftName").value.trim();
+      const phone = document.getElementById("giftPhone").value.trim();
+      const item = document.getElementById("giftItem").value;
+      const model = document.getElementById("giftModel").value.trim();
+      const note = document.getElementById("giftNote").value.trim();
+
+      document.getElementById("giftResult").textContent =
+        "Na karɓi bayananka a wannan shafin. " +
+        "Amma ba a aika ko adana su ga mai shafin ba tukuna. " +
+        "Za a buƙaci haɗa fom da tsarin karɓar bayanai kafin a fara amfani da shi.";
+
+      console.log({
+        name: name,
+        phone: phone,
+        item: item,
+        model: model,
+        note: note
+      });
+    }
+  );
+</script>
+
 </body>
 </html>
